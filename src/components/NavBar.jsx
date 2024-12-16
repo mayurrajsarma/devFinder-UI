@@ -2,9 +2,9 @@ import React from 'react'
 
 const NavBar = () => {
   return (
-    <div className="navbar bg-base-200">
+    <div className="navbar absolute z-10 bg-gradient-to-b from-black/80 via-black/50 to-transparent ">
         <div className="flex-1">
-          <a className="btn btn-ghost text-xl">DevFinder</a>
+          <a className="btn btn-ghost text-3xl text-white">DevFinder</a>
         </div>
         <div className="flex-none gap-2">
           <div className="dropdown dropdown-end mx-3">
