@@ -1,25 +1,36 @@
 import React, { useState } from 'react'
-import { LOGIN_BG_IMG } from '../utils/constants'
+import { BASE_URL, LOGIN_BG_IMG } from '../utils/constants'
 import Footer from './Footer'
 import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { addUser } from '../utils/userSlice';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+    const dispatch = useDispatch() ;
     const [emailId,setEmailId] = useState("ruyam@email.com") ;
     const [password,setPassword] = useState("Password@123") ;
+    const navigate = useNavigate() ;
 
     const handleLogin = async ()=> {
         try {
-            const res = await axios.post("http://localhost:3000/login",{
+            const res = await axios.post(BASE_URL + "/login",{
                 emailId,
                 password,
-        },
-        {
+            },
+            {
             withCredentials:true,
-        });
-        } catch (err) {
+            });
+            console.log(res.data);
+            navigate("/") ;
+            dispatch(addUser(res.data));
+        } 
+        catch (err) {
+            
            console.error(err) 
         }
     }
+
 
     return (
         <div className='relative'>
