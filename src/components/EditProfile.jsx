@@ -40,16 +40,16 @@ const EditProfile = ({user}) => {
     }
 
   return (
-    <div>
-        {msg && <div className="absolute toast toast-top toast-start">
+    <div className=''>
+        {msg && <div className="toast toast-top toast-start mx-5">
         
             <div className="alert alert-success">
                 <span>{msg}</span>
             </div>
         </div>}
         
-        <div className='flex'>
-            <div data-theme="cupcake" className="card bg-base-300 w-96">
+        <div className='flex pt-20 '>
+            <div data-theme="cupcake" className="card bg-base-300 w-96 mx-5">
                 <div className="card-body">
                     <h2 className="card-title mb-10">Edit Form</h2>
                     
