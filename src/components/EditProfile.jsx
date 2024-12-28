@@ -89,6 +89,14 @@ const EditProfile = ({user}) => {
                         <input 
                             type="text" 
                             className="grow" 
+                            placeholder={photoUrl}
+                            onChange={(e)=>setPhotoUrl(e.target.value)} 
+                        />
+                    </label>
+                    <label className="input input-bordered flex items-center gap-2">
+                        <input 
+                            type="text" 
+                            className="grow" 
                             placeholder={about} 
                             onChange={(e)=>setAbout(e.target.value)}
                         />
