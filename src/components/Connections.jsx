@@ -21,8 +21,10 @@ const Connections = () => {
 
     useEffect(()=>{
         getConnections();
-        console.log(connections)
+        // console.log(connections)
     },[])
+
+
 
     return connections && (
         <div data-theme="dim" className='min-h-screen flex justify-center '>
