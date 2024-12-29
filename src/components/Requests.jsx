@@ -20,6 +20,16 @@ const Requests = () => {
         }
     }
 
+    const reviewRequest = async(status,id)=> {
+        try {
+            const res = await axios.post(BASE_URL + "/request/review/" + status + "/" + id,{},{
+                withCredentials: true
+            })
+        } catch (err) {
+           console.log(err); 
+        }
+    }
+
     useEffect(()=> {
         getRequests();
     },[]) ;
@@ -27,7 +37,11 @@ const Requests = () => {
     if(!request) return ;
     if(request.length === 0) return (
         <div data-theme="dim" className='min-h-screen'>
-            <h1>No request found</h1>
+            <div className='absolute left-1/2 transform -translate-x-1/2'>
+                <div className='mt-[400px] '>
+                    <h1 className='text-3xl font-bold tracking-tighter'>No request found</h1>
+                </div>
+            </div>
         </div>
     )
 
@@ -45,8 +59,8 @@ const Requests = () => {
                             <div className='ml-2  py-6 w-full flex justify-between'>
                                 <h2 className='text-white py-2'>{firstName + " " + lastName}</h2>
                                 <div className=' mx-3'>
-                                    <button className="btn btn-outline btn-info mr-3">Accept</button>
-                                    <button className="btn btn-outline btn-error ">Reject</button>
+                                    <button onClick={()=> reviewRequest("accept",req._id)} className="btn btn-outline btn-info mr-3">Accept</button>
+                                    <button onClick={()=> reviewRequest("reject",req._id)} className="btn btn-outline btn-error ">Reject</button>
                                 </div>
                             </div>
                         </div>
