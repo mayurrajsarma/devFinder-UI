@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { BASE_URL } from '../utils/constants'
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
-import { addRequest } from '../utils/requestSlice';
+import { addRequest, removeRequest } from '../utils/requestSlice';
 
 const Requests = () => {
     const dispatch = useDispatch();
@@ -14,7 +14,7 @@ const Requests = () => {
                 {withCredentials:true} 
             );
             dispatch(addRequest(res?.data?.data)) ;
-            console.log(res?.data?.data[0].fromUserId)
+            // console.log(res?.data?.data[0].fromUserId)
         } catch (error) {
             console.log(error)
         }
@@ -24,7 +24,8 @@ const Requests = () => {
         try {
             const res = await axios.post(BASE_URL + "/request/review/" + status + "/" + id,{},{
                 withCredentials: true
-            })
+            });
+            dispatch(removeRequest(id)) ;
         } catch (err) {
            console.log(err); 
         }
