@@ -23,6 +23,17 @@ const Feed = () => {
     getFeed();
   },[])
 
+  if(feed.length == 0) {
+    return (
+      <div data-theme="dim" className='min-h-screen'>
+            <div className='absolute left-1/2 transform -translate-x-1/2'>
+                <div className='mt-[400px] '>
+                    <h1 className='text-3xl font-bold tracking-tighter'>No new users found!</h1>
+                </div>
+            </div>
+        </div>
+    )
+  }
 
   return feed && ( //when the feed is fetched then load the screen
     <div className=''>
