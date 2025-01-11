@@ -9,10 +9,10 @@ const EditProfile = ({user}) => {
     
     const [firstName,setFirstName] = useState(user.firstName);
     const [lastName,setLastName] = useState(user.lastName);
-    const [age,setAge] = useState(user.age);
+    const [age,setAge] = useState(user.age || "");
     const [photoUrl,setPhotoUrl] = useState(user.photoUrl);
     const [about,setAbout] = useState(user.about);
-    const [gender,setGender] = useState(user.gender);
+    const [gender,setGender] = useState(user.gender || "");
     const [error,setError] = useState("") ;
     const [msg,setMsg] = useState("") ;
     const dispatch = useDispatch() ;
@@ -41,18 +41,18 @@ const EditProfile = ({user}) => {
 
   return (
     <div className=''>
-        {msg && <div className="toast toast-top toast-start mx-5">
-        
+        {msg && <div className="toast toast-top toast-start w-[420px] mt-14">
             <div className="alert alert-success">
                 <span>{msg}</span>
             </div>
         </div>}
         
-        <div className='flex pt-20 '>
+        <div className='flex mt-40 '>
             <div data-theme="cupcake" className="card bg-base-300 w-96 mx-5">
                 <div className="card-body">
                     <h2 className="card-title mb-10">Edit Form</h2>
                     
+                    <span className="label-text">Firstname :</span>
                     <label className="input input-bordered flex items-center gap-2">
                         <input 
                             type="text" 
@@ -61,6 +61,8 @@ const EditProfile = ({user}) => {
                             onChange={(e)=> setFirstName(e.target.value)} 
                         />
                     </label>
+
+                    <span className="label-text">Lastname :</span>
                     <label className="input input-bordered flex items-center gap-2">
                         <input 
                             type="text" 
@@ -69,6 +71,8 @@ const EditProfile = ({user}) => {
                             onChange={(e)=>setLastName(e.target.value)}
                         />
                     </label>
+
+                    <span className="label-text">Age :</span>
                     <label className="input input-bordered flex items-center gap-2">
                         <input 
                             type="text" 
@@ -77,14 +81,24 @@ const EditProfile = ({user}) => {
                             onChange={(e)=>setAge(e.target.value)} 
                         />
                     </label>
-                    <label className="input input-bordered flex items-center gap-2">
+
+                    <span className="label-text">Gender :</span>
+                    {/* <label className="input input-bordered flex items-center gap-2">
                         <input 
                             type="text" 
                             className="grow" 
                             placeholder={gender}
                             onChange={(e)=>setGender(e.target.value)} 
                         />
-                    </label>
+                    </label> */}
+                    <select className="select w-full max-w-xs" placeholder={gender} onChange={(e)=>setGender(e.target.value)}>
+                        <option disabled selected>Select</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                    </select>
+
+                    <span className="label-text">PhotoURL :</span>
                     <label className="input input-bordered flex items-center gap-2">
                         <input 
                             type="text" 
@@ -93,6 +107,8 @@ const EditProfile = ({user}) => {
                             onChange={(e)=>setPhotoUrl(e.target.value)} 
                         />
                     </label>
+
+                    <span className="label-text">About :</span>
                     <label className="input input-bordered flex items-center gap-2">
                         <input 
                             type="text" 

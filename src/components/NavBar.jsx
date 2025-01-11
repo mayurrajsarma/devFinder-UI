@@ -23,7 +23,7 @@ const NavBar = () => {
   }
 
   return (
-    <div className="navbar absolute z-10 bg-gradient-to-b from-black/80 via-black/50 to-transparent ">
+    <div className="navbar absolute z-10 bg-gradient-to-b from-black/80 via-black/50 to-transparent">
         <div className="flex-1">
           <Link to="/" className="btn btn-ghost text-3xl text-white">DevFinder</Link>
         </div>

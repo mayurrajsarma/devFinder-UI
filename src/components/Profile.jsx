@@ -10,7 +10,7 @@ const Profile = () => {
   return user && (
     
     <div data-theme="dim" className='min-h-screen'>
-      <div  className='absolute left-1/2 transform -translate-x-1/2 mt-40 '>
+      <div  className='absolute left-1/2 transform -translate-x-1/2'>
         <EditProfile user={user}/>
       </div>
       

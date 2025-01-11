@@ -23,6 +23,8 @@ const Feed = () => {
     getFeed();
   },[])
 
+  if(!feed) return ;
+  
   if(feed.length == 0) {
     return (
       <div data-theme="dim" className='min-h-screen'>
