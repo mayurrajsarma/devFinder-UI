@@ -58,13 +58,13 @@ const Login = () => {
 
 
     return (
-        <div className='relative'>
-            <div className='absolute '>
-            <img className='h-screen bg-cover md:h-auto bg-gradient-to-b from-black' src={LOGIN_BG_IMG} alt='BG' />
+        <div className=''>
+            <div className='absolute inset-0'>
+                <img className='w-full h-screen object-cover' src={LOGIN_BG_IMG} alt='BG' />
             </div>
 
-            <div className='flex justify-center '>
-                <div className="card bg-base-300 w-96 shadow-xl my-40 ">
+            <div className='flex justify-center items-center min-h-screen'>
+                <div className="card bg-base-300 shadow-xl w-full max-w-sm">
                     <div className="card-body ">
                         <h1 className="card-title mb-2">{isLogin? "Login": "Sign Up"}</h1>
                         {!isLogin && <label className="input input-bordered flex items-center gap-2">
@@ -150,7 +150,7 @@ const Login = () => {
                     </div>
                 </div>
             </div>
-            <Footer/>
+            {/* <Footer/> */}
         </div>
     
     )

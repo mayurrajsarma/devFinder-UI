@@ -20,8 +20,8 @@ const UserCard = ({user}) => {
         }
     }
   return (
-    <div>
-        <div className="card glass w-96">
+    <div className='w-80'>
+        <div className="card glass ">
             <figure>
                 <img
                 className='p-3'

@@ -47,8 +47,8 @@ const EditProfile = ({user}) => {
             </div>
         </div>}
         
-        <div className='flex mt-40 '>
-            <div data-theme="cupcake" className="card bg-base-300 w-96 mx-5">
+        <div className='mt-40 md:flex lg:flex w-screen justify-center'>
+            <div data-theme="cupcake" className=" card bg-base-300 mx-5 sm:w-3/4 md:w-1/2 lg:w-1/3 xl:w-1/4">
                 <div className="card-body">
                     <h2 className="card-title mb-10">Edit Form</h2>
                     
@@ -126,7 +126,7 @@ const EditProfile = ({user}) => {
                     </div>
                 </div>
             </div>
-            <div>
+            <div className='flex justify-center mt-5 sm:mt-5 md:mt-0 lg:mt-0 xl-mt-0'>
                 <UserCard user={{firstName,lastName,age,about,photoUrl,gender}}/>
             </div>
         </div>
