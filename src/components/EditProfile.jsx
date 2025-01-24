@@ -41,14 +41,17 @@ const EditProfile = ({user}) => {
 
   return (
     <div className=''>
-        {msg && <div className="toast toast-top toast-start w-[420px] mt-14">
+        {msg && <div className="absolute toast toast-top toast-start  mt-14">
             <div className="alert alert-success">
                 <span>{msg}</span>
             </div>
         </div>}
         
         <div className='mt-40 md:flex lg:flex w-screen justify-center'>
-            <div data-theme="cupcake" className=" card bg-base-300 mx-5 sm:w-3/4 md:w-1/2 lg:w-1/3 xl:w-1/4">
+            <div className='flex justify-center '>
+                <UserCard user={{firstName,lastName,age,about,photoUrl,gender}}/>
+            </div>
+            <div data-theme="cupcake" className=" card bg-base-300 mt-5 sm:mt-5 md:mt-0 lg:mt-0 xl-mt-0 mx-5 sm:w-3/4 md:w-1/2 lg:w-1/3 xl:w-1/4">
                 <div className="card-body">
                     <h2 className="card-title mb-10">Edit Form</h2>
                     
@@ -126,9 +129,7 @@ const EditProfile = ({user}) => {
                     </div>
                 </div>
             </div>
-            <div className='flex justify-center mt-5 sm:mt-5 md:mt-0 lg:mt-0 xl-mt-0'>
-                <UserCard user={{firstName,lastName,age,about,photoUrl,gender}}/>
-            </div>
+            
         </div>
     </div>
   )
