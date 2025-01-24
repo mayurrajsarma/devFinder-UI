@@ -54,12 +54,12 @@ const Requests = () => {
                     {request.map((req)=>{
                         const {firstName,lastName,_id,photoUrl} = req.fromUserId;
                         return (
-                            <div key={_id} className='flex mb-4 bg-slate-900 border h-25'>
-                                <div className='py-2 border'>
+                            <div key={_id} className='flex mb-4 bg-slate-900 h-25'>
+                                <div className='py-2 '>
                                     <img className='rounded-full w-20 h-15 object-cover' src={photoUrl}></img>
                                 </div>
-                                <div className='ml-2  py-6 w-full flex justify-between border'>
-                                    <h2 className='text-white py-2 text-xs sm:text-sm md:text-lg border w-1/2'>{firstName + " " + lastName}</h2>
+                                <div className='ml-2  py-6 w-full flex justify-between '>
+                                    <h2 className='text-white py-2 text-xs sm:text-sm md:text-lg w-1/2'>{firstName + " " + lastName}</h2>
                                     <div className=' mx-3 flex'>
                                         <button onClick={()=> reviewRequest("accept",req._id)} className="btn btn-outline btn-info mr-3 text-xs px-2 md:px-4 md:text-base">Accept</button>
                                         <button onClick={()=> reviewRequest("reject",req._id)} className="btn btn-outline btn-error text-xs px-2 md:px-4 md:text-base">Reject</button>
