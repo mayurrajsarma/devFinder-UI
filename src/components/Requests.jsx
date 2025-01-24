@@ -48,26 +48,28 @@ const Requests = () => {
 
     return request && (
         <div data-theme="dim" className='min-h-screen flex justify-center '>
-            <div className='absolute mt-20 w-1/4 p-2'>
+            <div className=' mt-20 p-2'>
                 <h1 className='text-3xl font-bold p-5 mb-10 text-center'>Request</h1>
-                {request.map((req)=>{
-                    const {firstName,lastName,_id,photoUrl} = req.fromUserId;
-                    return (
-                        <div key={_id} className='flex mb-4 bg-slate-900'>
-                            <div className='py-2'>
-                                <img className='rounded-full w-20 h-20 object-cover' src={photoUrl}></img>
-                            </div>
-                            <div className='ml-2  py-6 w-full flex justify-between'>
-                                <h2 className='text-white py-2'>{firstName + " " + lastName}</h2>
-                                <div className=' mx-3'>
-                                    <button onClick={()=> reviewRequest("accept",req._id)} className="btn btn-outline btn-info mr-3">Accept</button>
-                                    <button onClick={()=> reviewRequest("reject",req._id)} className="btn btn-outline btn-error ">Reject</button>
+                <div className='h-[460px] overflow-auto p-2'>
+                    {request.map((req)=>{
+                        const {firstName,lastName,_id,photoUrl} = req.fromUserId;
+                        return (
+                            <div key={_id} className='flex mb-4 bg-slate-900'>
+                                <div className='py-2'>
+                                    <img className='rounded-full w-20 h-20 object-cover' src={photoUrl}></img>
+                                </div>
+                                <div className='ml-2  py-6 w-full flex justify-between'>
+                                    <h2 className='text-white py-2 text-xs sm:text-sm md:text-lg'>{firstName + " " + lastName}</h2>
+                                    <div className=' mx-3'>
+                                        <button onClick={()=> reviewRequest("accept",req._id)} className="btn btn-outline btn-info mr-3 text-xs px-2 md:px-4 md:text-base">Accept</button>
+                                        <button onClick={()=> reviewRequest("reject",req._id)} className="btn btn-outline btn-error text-xs px-2 md:px-4 md:text-base">Reject</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-
-                    )
-            })}
+                            )   
+                        })
+                    }
+                </div>
             </div> 
         </div>
 
