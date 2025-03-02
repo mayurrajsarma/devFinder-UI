@@ -7,11 +7,12 @@ import appStore from "./utils/appStore"
 import Feed from "./components/Feed"
 import Connections from "./components/Connections"
 import Requests from "./components/Requests"
+import newAppStore from "./utils/newAppStore"
 
 function App() {
   return (
     <>
-      <Provider store={appStore}>
+      <Provider store={newAppStore}>
         <BrowserRouter basename="/">
           <Routes>
             <Route path="/" element={<Body/>}>
