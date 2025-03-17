@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { useEffect } from 'react'
 import { BASE_URL } from '../utils/constants'
 import { useDispatch, useSelector } from 'react-redux'
-import { addConnection } from '../utils/connectionSlice'
+import { addConnection, removeConnection } from '../utils/connectionSlice'
 
 const Connections = () => {
     const dispatch = useDispatch() ;
@@ -19,6 +19,18 @@ const Connections = () => {
         }
     }
 
+    const handleRemoveRequest = async (id)=> {
+        try {
+            const res = await axios.post(BASE_URL + "/request/remove/" + id,
+                {},
+                {withCredentials: true}
+            );
+            dispatch(removeConnection(id)) ; 
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
     useEffect(()=>{
         getConnections();
         // console.log(connections)
@@ -32,7 +44,7 @@ const Connections = () => {
                 <h1 className='text-3xl font-bold p-5 mb-10 text-center '>Connections</h1>
                 <div className='h-[460px] overflow-auto p-2 '>
                     {connections.map((connection)=>{
-                        const {firstName,lastName,_id,photoUrl} = connection;
+                        const {firstName,lastName,_id,photoUrl} = connection.user;
                         return (
                             <div key={_id} className='flex mb-4 bg-slate-900 '>
                                 <div className='py-2'>
@@ -40,7 +52,7 @@ const Connections = () => {
                                 </div>
                                 <div className='ml-2  py-6 w-full flex justify-between'>
                                     <h2 className='text-white py-2'>{firstName + " " + lastName}</h2>
-                                    <button className="btn btn-outline btn-error mr-4">Remove</button>
+                                    <button className="btn btn-outline btn-error mr-4" onClick={()=> handleRemoveRequest(connection.connectionId)}>Remove</button>
                                 </div>
                             </div>
 
