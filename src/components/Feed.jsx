@@ -38,10 +38,10 @@ const Feed = () => {
   }
 
   return feed && ( //when the feed is fetched then load the screen
-    <div className=''>
-      <div className='absolute inset-0'>
+    <div data-theme="dim" className=''>
+      {/* <div className='absolute inset-0'>
         <img className='w-full h-screen object-cover' src={FEED_BG_IMG} alt='BG' />
-      </div>
+      </div> */}
       <div className='flex justify-center items-center min-h-screen mx-5'>
         <UserCard user={feed[0]}/>
       </div>
